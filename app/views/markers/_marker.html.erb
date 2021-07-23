@@ -1,0 +1,11 @@
+<div class="container">
+  <p id="<%= marker.id%>">
+    <strong><%= marker.name %></strong>
+    <p><%= marker.name_category[0] %></p>
+    <p><a href=<%= marker.url %> target="_blanck"><%= marker.url %></a></p>
+    <%= link_to 'Show', marker, remote: true , class: "btn btn-light" %>
+    <%= link_to 'Edit', edit_marker_path(marker), remote: true,class: "btn btn-light" %>
+    <%= link_to 'Destroy', marker, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light" %></td><hr>
+  </p>
+</div>
+

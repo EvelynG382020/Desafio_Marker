@@ -1,0 +1,41 @@
+<div class="container"><hr>
+  <%= link_to 'All Categories', categories_path %> |
+ <hr>
+  <%= form_with(model: marker, remote: true, data: { confirm: 'Desea continuar?'}) do |form| %>
+    <% if marker.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(marker.errors.count, "error") %> prohibited this marker from being saved:</h2>
+
+        <ul>
+        <% marker.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :categories %><br>
+      <%= form.collection_check_boxes(:category_ids, Category.all,
+        :id, :name) do |b| %> 
+          <%= b.label class:"label-checkbox" do%>
+          <%=b.check_box + b.text%> 
+        <%end%>
+      <% end %> 
+    </div>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :url %>
+      <%= form.text_field :url %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit data: {disable_with: 'Creando'} %>
+    </div><hr>
+  <% end %>
+</div>

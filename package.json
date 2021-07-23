@@ -1,0 +1,7 @@
+{
+  "name": "DesafioMarkers",
+  "private": true,
+  "dependencies": {
+    "chartkick": "^4.0.5"
+  }
+}
