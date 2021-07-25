@@ -1,12 +1,12 @@
 <div class="container">  
   <p id="<%= category.id%>">
-    <p><strong><%= category.name_type[0] %></strong>
-      <% if category.name_parent(category.category_id).empty? %>
-        <%= category.name %><hr>
-      <% else %>
-        <%= category.name_parent(category.category_id) %> 
-        <%= category.name %>
-      <% end %>
+    <p><strong><%= category.name %></strong>
+      <% if category.all_the_child_categories 
+         category.all_the_child_categories
+        else
+          'No tiene categoria padre'
+        end 
+      %>
     </p>
       <p>
       <%= link_to 'Show', category, remote: true, class: "btn btn-light" %>

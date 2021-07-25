@@ -41,10 +41,36 @@ class CategoriesController < ApplicationController
     # end
   end
 
-  # def data_categories
-  #   @categories = Category.build_data
-  #   render json: @categories
-  # end
+  def api_json
+    @markers = Marker.all
+    @category_api = Category.where(public: false)
+    hash_final = {}
+    marker_array = []
+    category_array = []
+
+    @markers.each do |m|
+      obj_marker = {
+        name: m.name,
+        url: m.url,
+        category_id: m.category_id
+      } 
+      marker_array.push(obj_marker)
+    end
+    
+    hash_final[:Markers] = marker_array
+
+    @category_api.each do |c|
+      obj_cat = {
+        name: c.name,
+        public: c.public, 
+        category_id: c.category_id,
+        type_id: c.type_id
+      } 
+      category_array.push(obj_cat)
+    end
+    hash_final[:Categories] = category_array
+    render json: hash_final
+  end
 
   # PATCH/PUT /categories/1 or /categories/1.json
   def update
