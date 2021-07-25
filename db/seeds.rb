@@ -17,12 +17,12 @@ Type.destroy_all
 Category.destroy_all
 
 
-public = [true, false]
+public_bool = [true, false]
 
 20.times do
     Category.create(
         name: Faker::Company.name,
-        public: public.sample()
+        public: public_bool.sample()
     )
 end
 

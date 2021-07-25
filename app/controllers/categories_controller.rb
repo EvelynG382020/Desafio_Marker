@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     @category = Category.new
+    @categories_ids = Category.all.map{ |category| [category.name, category.id]}
   end
 
   # GET /categories/1 or /categories/1.json

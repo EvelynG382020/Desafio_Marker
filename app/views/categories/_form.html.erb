@@ -23,9 +23,7 @@
       <%= form.text_field :name %>
     </div>
 
-    
-
-     <div class="field">
+    <div class="field">
       <%= form.label :type_id %>
       <%= form.collection_select :type_id , Type.all, :id, :name, prompt: true  %>
     </div>

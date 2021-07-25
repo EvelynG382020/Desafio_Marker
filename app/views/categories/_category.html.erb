@@ -1,8 +1,8 @@
 <div class="container">  
   <p id="<%= category.id%>">
     <p><strong><%= category.name %></strong>
-      <% if category.all_the_child_categories 
-         category.all_the_child_categories
+      <% if category.parent_category 
+         category.parent_category
         else
           'No tiene categoria padre'
         end 

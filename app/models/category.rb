@@ -3,10 +3,12 @@ class Category < ApplicationRecord
   has_many :children_categories, class_name: "Category", dependent: :destroy
   
   belongs_to :type
-  has_many :markers , dependent: :destroy
+  has_many :markers, dependent: :destroy
   
 
-  def all_the_child_categories
+  
+
+  def self.all_the_child_categories
     children_categories = []
     self.children_categories.each do |child_category|
         children_categories << child_category.name
